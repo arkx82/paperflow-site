@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PaperFlow 개인정보처리방침</title>
+<meta name="description" content="PaperFlow 안드로이드 전자책 리더가 어떤 정보를 다루고 어디로 보내는지.">
+<style>
+  :root { color-scheme: light dark; --bg:#f7f4ec; --ink:#2a2622; --muted:#6b645c; --rule:#d9d2c4; --accent:#8a5a19; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#17171a; --ink:#e8e2d6; --muted:#a39b8f; --rule:#34333a; --accent:#d8a95a; } }
+  html { background: var(--bg); }
+  body { margin:0; padding:0 20px 64px; color:var(--ink); background:var(--bg); font: 16px/1.7 -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", Roboto, sans-serif; }
+  main { max-width: 42rem; margin: 0 auto; }
+  header { padding: 48px 0 24px; border-bottom: 1px solid var(--rule); }
+  header h1 { font-size: 1.9rem; margin: 0 0 6px; letter-spacing: -0.01em; text-wrap: balance; }
+  header p { margin: 0; color: var(--muted); }
+  h2 { font-size: 1.15rem; margin: 40px 0 10px; }
+  h3 { font-size: 1rem; margin: 24px 0 6px; }
+  p, li { max-width: 65ch; }
+  ul { padding-left: 1.2em; }
+  li { margin: 4px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95rem; margin: 12px 0; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--rule); }
+  th { color: var(--muted); font-weight: 600; }
+  .wrap { overflow-x: auto; }
+  a { color: var(--accent); }
+  .note { color: var(--muted); font-size: 0.95rem; }
+  .en { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--rule); }
+  footer { margin-top: 48px; color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main>
+<header>
+  <h1>PaperFlow 개인정보처리방침</h1>
+  <p>시행일 2026년 9월 8일 · 안드로이드용 전자책·만화 리더 “PaperFlow”(패키지 <code>date.jjune.paperflow</code>)에 적용됩니다.</p>
+</header>
+
+<h2>요약</h2>
+<ul>
+  <li>PaperFlow에는 회원 가입이나 개발자 서버 계정이 없습니다. 개발자는 사용자 서버를 운영하지 않으며, 읽기 기록·책·설정을 수집하지 않습니다.</li>
+  <li>책, 읽던 위치, 책갈피, 형광펜, 읽은 시간, 설정은 모두 <strong>기기 안</strong>에 저장됩니다.</li>
+  <li>사용자가 직접 켠 기능(클라우드 동기화, KOReader 동기화, 네트워크 서재, 백업)만 사용자가 지정한 서비스나 서버와 통신합니다.</li>
+  <li>Google Play에서 설치한 무료 버전은 Google AdMob 광고를 표시합니다. Pro를 구매하면 광고가 없습니다.</li>
+  <li>분석(Analytics) SDK와 크래시 리포팅 서비스를 사용하지 않습니다.</li>
+</ul>
+
+<h2>1. 기기 안에만 있는 정보</h2>
+<p>다음 정보는 앱의 비공개 저장 공간에만 저장되며 개발자에게 전송되지 않습니다.</p>
+<ul>
+  <li>사용자가 연 책 파일과 그 내용 지문(파일을 식별하기 위한 해시), 표지 그림, 페이지 캐시</li>
+  <li>읽던 위치, 책갈피, 형광펜, 읽은 시간과 페이지 수 등 읽기 기록</li>
+  <li>화면·글꼴·듣기 등 모든 설정, 사용자가 추가한 글꼴, 저장한 타이포그래피 프리셋</li>
+  <li>네트워크 서재(WebDAV·SMB·OPDS)와 KOReader 서버의 주소·계정·비밀번호. 비밀번호는 Android Keystore로 봉인되어 저장되며, 백업 파일에는 포함되지 않습니다.</li>
+  <li>마지막 오류 기록(크래시 로그). 앱의 “고급” 페이지에서 사용자가 볼 수 있고 지울 수 있으며, 어디로도 전송되지 않습니다.</li>
+  <li>읽어 주기(TTS)에 쓰는 음성 모델과 언어 모델 파일. 문장 판정과 인물 목소리 배정은 기기 안에서만 처리됩니다.</li>
+</ul>
+
+<h2>2. 사용자가 켤 때만 통신하는 기능</h2>
+<div class="wrap">
+<table>
+  <tr><th>기능</th><th>상대</th><th>오가는 정보</th></tr>
+  <tr><td>클라우드 읽기 동기화·백업</td><td>Google Drive, Dropbox, Microsoft OneDrive 중 사용자가 로그인한 서비스</td><td>책의 내용 지문별 읽던 위치·책갈피·읽은 시간을 담은 JSON 파일과, 사용자가 켠 경우 백업 파일(설정·책갈피·형광펜·읽은 기록). 앱 전용 폴더(Drive appDataFolder, Dropbox 앱 폴더, OneDrive 앱 루트)에만 쓰며 다른 파일은 읽지 않습니다. 로그인 토큰은 기기 안에 봉인 저장됩니다.</td></tr>
+  <tr><td>KOReader 동기화</td><td>사용자가 입력한 서버(예: sync.koreader.rocks, Komga, 자체 kosync)</td><td>사용자 이름, 비밀번호의 MD5 해시, 책 파일의 지문, 페이지 번호·백분율, 기기 이름</td></tr>
+  <tr><td>네트워크 서재</td><td>사용자가 입력한 WebDAV·SMB·OPDS 서버</td><td>로그인 정보와 책 목록·파일 요청. OPDS 서버가 지원하면 읽던 위치도 서버와 주고받습니다.</td></tr>
+  <tr><td>로컬 폴더 동기화·백업</td><td>사용자가 고른 폴더(기기, SD 카드, 다른 앱이 동기화하는 폴더)</td><td>위 JSON·백업 파일</td></tr>
+  <tr><td>음성·언어 모델 내려받기</td><td>GitHub(arkx82/PaperFlow-models 릴리즈), Hugging Face</td><td>모델 파일 다운로드 요청만. 개인 정보는 보내지 않습니다.</td></tr>
+  <tr><td>기기 내장 읽어 주기</td><td>기기에 설치된 TTS 엔진(Samsung, Google 등)</td><td>읽어 줄 문장. 해당 엔진의 정책이 적용됩니다.</td></tr>
+</table>
+</div>
+<p class="note">사용자가 연결한 서비스나 서버에 저장된 정보는 그 서비스의 약관과 정책을 따르며, 개발자는 그 내용에 접근하지 않습니다. 연결은 앱의 “읽기 동기화 / 백업” 페이지에서 언제든 끊을 수 있고, 끊으면 기기 안의 로그인 토큰이 삭제됩니다.</p>
+
+<h2>3. 광고와 결제 (Google Play 버전)</h2>
+<ul>
+  <li>Google Play에서 설치한 무료 버전은 책을 고르고 설정을 하는 화면(서가·설정 책자)에 <strong>Google AdMob</strong> 배너를 표시하고, Pro 체험을 위해 사용자가 선택할 때 보상형 광고를 보여 줍니다. 읽는 페이지 위에는 광고를 두지 않습니다.</li>
+  <li>AdMob은 광고 제공과 부정 방지를 위해 광고 ID, IP 주소, 기기 정보 등을 처리할 수 있습니다. 유럽경제지역·영국 등에서는 Google의 사용자 메시지 플랫폼(UMP)으로 동의를 묻습니다. 자세한 내용은 <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>과 <a href="https://support.google.com/admob/answer/6128543">AdMob 광고 개인정보 보호</a>를 참고하세요.</li>
+  <li>Pro 구매는 <strong>Google Play 결제</strong>로 처리됩니다. 개발자는 결제 정보를 받지 않으며, 구매 여부(권한)만 Play에서 확인합니다.</li>
+  <li>Pro가 열리면(구매 또는 체험) 광고가 표시되지 않습니다. GitHub에서 배포되는 개발용 빌드에는 광고가 없습니다.</li>
+</ul>
+
+<h2>4. 권한</h2>
+<ul>
+  <li><strong>인터넷</strong>: 위 2·3항의 통신에만 씁니다.</li>
+  <li><strong>알림</strong>: 읽어 주기 재생 컨트롤과, 사용자가 요청한 네트워크 서재 색인 진행 상황을 알림으로 보여 줍니다.</li>
+  <li><strong>포그라운드 서비스</strong>(미디어 재생·데이터 동기화): 화면을 끄거나 다른 앱으로 가도 읽어 주기와 서재 색인이 이어지도록 합니다.</li>
+  <li>책 파일과 폴더는 Android의 문서 선택기(SAF)로 사용자가 고른 것만 엽니다. 저장 공간 전체 권한을 요구하지 않습니다.</li>
+</ul>
+
+<h2>5. 보관과 삭제</h2>
+<p>기기 안의 정보는 앱을 삭제하면 함께 삭제됩니다. 앱 안에서도 읽은 기록을 지우고(“읽기 기록” 페이지), 서재 색인을 지우고, 클라우드·서버 연결을 끊을 수 있습니다. 사용자가 지정한 서비스나 폴더에 쓰인 동기화·백업 파일은 그곳에서 직접 지울 수 있습니다.</p>
+
+<h2>6. 아동</h2>
+<p>PaperFlow는 아동을 대상으로 하지 않으며, 아동의 개인정보를 의도적으로 수집하지 않습니다.</p>
+
+<h2>7. 변경</h2>
+<p>이 문서가 바뀌면 이 페이지의 시행일을 갱신합니다. 중요한 변경은 앱의 릴리즈 노트에도 적습니다.</p>
+
+<h2>8. 문의</h2>
+<p>개발자: arkx82 (<a href="https://github.com/arkx82">github.com/arkx82</a>)<br>
+이메일: <a href="mailto:CONTACT_EMAIL">CONTACT_EMAIL</a></p>
+
+<section class="en" lang="en">
+<h2>Privacy Policy (English)</h2>
+<p><strong>Effective 8 September 2026.</strong> PaperFlow is an e-book and comic reader for Android (<code>date.jjune.paperflow</code>).</p>
+<ul>
+  <li><strong>No accounts, no developer servers.</strong> PaperFlow has no sign-up and the developer runs no server for it. Your books, reading positions, bookmarks, highlights, reading time and settings stay on your device and are never sent to the developer.</li>
+  <li><strong>Features you turn on talk only to services you choose.</strong> Cloud sync and backup write small JSON files to an app-only folder of the Google Drive, Dropbox or OneDrive account you sign into (sign-in tokens are sealed on the device). KOReader sync sends your username, an MD5 of your password, a fingerprint of the book file and the page position to the server you enter. Network shelves (WebDAV, SMB, OPDS) send your credentials and file requests to the servers you add. Voice and language models are downloaded from GitHub and Hugging Face without any personal data.</li>
+  <li><strong>Advertising and payments (Google Play version).</strong> The free version installed from Google Play shows Google AdMob banners on the shelf and settings screens, and a rewarded ad when you choose a Pro trial. AdMob may process the advertising ID, IP address and device information; consent is requested through Google's User Messaging Platform where required. See <a href="https://policies.google.com/privacy">Google's privacy policy</a>. Pro is purchased through Google Play Billing; the developer receives no payment details. Pro removes the ads.</li>
+  <li><strong>No analytics or crash-reporting SDKs.</strong> The last crash log is kept on the device, viewable and deletable under Advanced, and is never uploaded.</li>
+  <li><strong>Permissions.</strong> Internet (for the features above), notifications (read-aloud controls and indexing progress), foreground service (read-aloud and indexing continue in the background). Files and folders are opened only through the Android document picker.</li>
+  <li><strong>Deletion.</strong> Uninstalling removes everything on the device. Connections can be disconnected in Reading sync / backup; files written to your own services or folders can be removed there.</li>
+  <li><strong>Children.</strong> PaperFlow is not directed at children and does not knowingly collect their data.</li>
+  <li><strong>Contact.</strong> arkx82 · <a href="https://github.com/arkx82">github.com/arkx82</a> · <a href="mailto:CONTACT_EMAIL">CONTACT_EMAIL</a></li>
+</ul>
+</section>
+
+<footer>© 2026 arkx82 · PaperFlow</footer>
+</main>
+</body>
+</html>

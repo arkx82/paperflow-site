@@ -1,0 +1,6 @@
+# Who is allowed to sell advertising inventory in PaperFlow.
+#
+# Served at the root of the developer website named in the Play listing, which
+# is where AdMob crawls for it: https://paperflow.jjune.date/app-ads.txt
+# Published from arkx82/paperflow-site; this copy is the source it is taken from.
+google.com, pub-7167163455724098, DIRECT, f08c47fec0942fa0

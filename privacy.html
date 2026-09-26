@@ -33,14 +33,14 @@
 <main>
 <header>
   <h1>PaperFlow 개인정보처리방침</h1>
-  <p>시행일 2026년 9월 8일 · 안드로이드용 전자책·만화 리더 “PaperFlow”(패키지 <code>date.jjune.paperflow</code>)에 적용됩니다.</p>
+  <p>시행일 2026년 9월 27일 · 안드로이드용 전자책·만화 리더 “PaperFlow”(패키지 <code>date.jjune.paperflow</code>)에 적용됩니다.</p>
 </header>
 
 <h2>요약</h2>
 <ul>
   <li>PaperFlow에는 회원 가입이나 개발자 서버 계정이 없습니다. 개발자는 사용자 서버를 운영하지 않으며, 읽기 기록·책·설정을 수집하지 않습니다.</li>
   <li>책, 읽던 위치, 책갈피, 형광펜, 읽은 시간, 설정은 모두 <strong>기기 안</strong>에 저장됩니다.</li>
-  <li>사용자가 직접 켠 기능(클라우드 동기화, KOReader 동기화, 네트워크 서재, 백업)만 사용자가 지정한 서비스나 서버와 통신합니다.</li>
+  <li>사용자가 직접 켠 기능(클라우드 동기화·서가, KOReader 동기화, 네트워크 서재, 백업, 온라인 읽어 주기)만 사용자가 지정한 서비스나 서버와 통신합니다.</li>
   <li>Google Play에서 설치한 무료 버전은 Google AdMob 광고를 표시합니다. Pro를 구매하면 광고가 없습니다.</li>
   <li>분석(Analytics) SDK와 크래시 리포팅 서비스를 사용하지 않습니다.</li>
 </ul>
@@ -51,23 +51,31 @@
   <li>사용자가 연 책 파일과 그 내용 지문(파일을 식별하기 위한 해시), 표지 그림, 페이지 캐시</li>
   <li>읽던 위치, 책갈피, 형광펜, 읽은 시간과 페이지 수 등 읽기 기록</li>
   <li>화면·글꼴·듣기 등 모든 설정, 사용자가 추가한 글꼴, 저장한 타이포그래피 프리셋</li>
-  <li>네트워크 서재(WebDAV·SMB·OPDS)와 KOReader 서버의 주소·계정·비밀번호. 비밀번호는 Android Keystore로 봉인되어 저장되며, 백업 파일에는 포함되지 않습니다.</li>
+  <li>네트워크 서재(WebDAV·SMB·OPDS)와 KOReader 서버의 주소·계정·비밀번호, 온라인 읽어 주기에 쓰는 사용자의 API 키. 비밀번호와 키는 Android Keystore로 봉인되어 저장되며, 백업 파일에는 포함되지 않습니다.</li>
   <li>마지막 오류 기록(크래시 로그). 앱의 “고급” 페이지에서 사용자가 볼 수 있고 지울 수 있으며, 어디로도 전송되지 않습니다.</li>
   <li>읽어 주기(TTS)에 쓰는 음성 모델과 언어 모델 파일. 문장 판정과 인물 목소리 배정은 기기 안에서만 처리됩니다.</li>
+  <li>글자 인식(스캔한 페이지)과 번역. 둘 다 기기 안에서 처리되며, 페이지나 문장이 밖으로 나가지 않습니다.</li>
+  <li>온라인 음성이 만든 소리. 같은 문장을 다시 요청하지 않도록 기기의 캐시에만 보관되고, 오래된 것부터 지워집니다.</li>
 </ul>
 
 <h2>2. 사용자가 켤 때만 통신하는 기능</h2>
 <div class="wrap">
 <table>
   <tr><th>기능</th><th>상대</th><th>오가는 정보</th></tr>
-  <tr><td>클라우드 읽기 동기화·백업</td><td>Google Drive, Dropbox, Microsoft OneDrive 중 사용자가 로그인한 서비스</td><td>책의 내용 지문별 읽던 위치·책갈피·읽은 시간을 담은 JSON 파일과, 사용자가 켠 경우 백업 파일(설정·책갈피·형광펜·읽은 기록). 앱 전용 폴더(Drive appDataFolder, Dropbox 앱 폴더, OneDrive 앱 루트)에만 쓰며 다른 파일은 읽지 않습니다. 로그인 토큰은 기기 안에 봉인 저장됩니다.</td></tr>
+  <tr><td>클라우드 읽기 동기화·백업</td><td>Google Drive, Dropbox, Microsoft OneDrive 중 사용자가 로그인한 서비스</td><td>책의 내용 지문별 읽던 위치·책갈피·읽은 시간을 담은 JSON 파일과, 사용자가 켠 경우 백업 파일(설정·책갈피·형광펜·읽은 기록). 앱 전용 폴더(Drive appDataFolder, Dropbox 앱 폴더, OneDrive 앱 루트)에만 씁니다. 로그인 토큰은 기기 안에 봉인 저장됩니다.</td></tr>
+  <tr><td>클라우드 서가 (Pro)</td><td>위와 같이 사용자가 로그인한 클라우드, 또는 사용자가 고른 동기화 폴더</td><td>사용자가 연 책과 서가에 올린 책의 파일, 표지 그림, 책 정보(제목·지은이·내용 지문)를 담은 작은 JSON. 사용자가 볼 수 있는 “PaperFlow Books” 폴더(Dropbox·OneDrive는 Apps/PaperFlow/Books)에 씁니다. Google Drive에서는 앱이 만든 파일에만 접근할 수 있는 권한(drive.file)을 쓰며, 사용자의 다른 파일은 읽지 않습니다. 서가에서 지운 책은 클라우드에서도 지워집니다.</td></tr>
   <tr><td>KOReader 동기화</td><td>사용자가 입력한 서버(예: sync.koreader.rocks, Komga, 자체 kosync)</td><td>사용자 이름, 비밀번호의 MD5 해시, 책 파일의 지문, 페이지 번호·백분율, 기기 이름</td></tr>
   <tr><td>네트워크 서재</td><td>사용자가 입력한 WebDAV·SMB·OPDS 서버</td><td>로그인 정보와 책 목록·파일 요청. OPDS 서버가 지원하면 읽던 위치도 서버와 주고받습니다.</td></tr>
   <tr><td>로컬 폴더 동기화·백업</td><td>사용자가 고른 폴더(기기, SD 카드, 다른 앱이 동기화하는 폴더)</td><td>위 JSON·백업 파일</td></tr>
   <tr><td>음성·언어 모델 내려받기</td><td>GitHub(arkx82/PaperFlow-models 릴리즈), Hugging Face</td><td>모델 파일 다운로드 요청만. 개인 정보는 보내지 않습니다.</td></tr>
+  <tr><td>번역 언어 팩 내려받기</td><td>Google (ML Kit)</td><td>사용자가 고른 언어의 번역 모델 다운로드 요청만. 번역할 문장은 보내지 않습니다.</td></tr>
+  <tr><td>온라인 읽어 주기 — Chirp 3 HD</td><td>Google Cloud Text-to-Speech</td><td rowspan="3">사용자가 이 음성을 고르고 자신의 API 키를 넣은 경우에만, <strong>읽어 줄 문장</strong>과 그 키를 해당 서비스로 보내고 음성을 받습니다. 사용료는 키의 계정으로 청구되며, 보낸 문장은 그 서비스의 약관과 개인정보처리방침에 따라 처리됩니다. 키는 해당 서비스 외에는 어디로도 보내지 않으며, 개발자는 문장·음성·키에 접근하지 않습니다.</td></tr>
+  <tr><td>온라인 읽어 주기 — Gemini</td><td>Google Gemini API</td></tr>
+  <tr><td>온라인 읽어 주기 — Qwen</td><td>Alibaba Cloud Model Studio 국제판(싱가포르 리전)</td></tr>
   <tr><td>기기 내장 읽어 주기</td><td>기기에 설치된 TTS 엔진(Samsung, Google 등)</td><td>읽어 줄 문장. 해당 엔진의 정책이 적용됩니다.</td></tr>
 </table>
 </div>
+<p class="note">온라인 읽어 주기 서비스의 정책: <a href="https://cloud.google.com/terms/cloud-privacy-notice">Google Cloud 개인정보처리방침</a>, <a href="https://ai.google.dev/gemini-api/terms">Gemini API 추가 서비스 약관</a>, <a href="https://www.alibabacloud.com/help/en/legal/latest/alibaba-cloud-international-website-privacy-policy">Alibaba Cloud 국제판 개인정보처리방침</a>.</p>
 <p class="note">사용자가 연결한 서비스나 서버에 저장된 정보는 그 서비스의 약관과 정책을 따르며, 개발자는 그 내용에 접근하지 않습니다. 연결은 앱의 “읽기 동기화 / 백업” 페이지에서 언제든 끊을 수 있고, 끊으면 기기 안의 로그인 토큰이 삭제됩니다.</p>
 
 <h2>3. 광고와 결제 (Google Play 버전)</h2>
@@ -102,10 +110,12 @@
 
 <section class="en" lang="en">
 <h2>Privacy Policy (English)</h2>
-<p><strong>Effective 8 September 2026.</strong> PaperFlow is an e-book and comic reader for Android (<code>date.jjune.paperflow</code>).</p>
+<p><strong>Effective 27 September 2026.</strong> PaperFlow is an e-book and comic reader for Android (<code>date.jjune.paperflow</code>).</p>
 <ul>
   <li><strong>No accounts, no developer servers.</strong> PaperFlow has no sign-up and the developer runs no server for it. Your books, reading positions, bookmarks, highlights, reading time and settings stay on your device and are never sent to the developer.</li>
-  <li><strong>Features you turn on talk only to services you choose.</strong> Cloud sync and backup write small JSON files to an app-only folder of the Google Drive, Dropbox or OneDrive account you sign into (sign-in tokens are sealed on the device). KOReader sync sends your username, an MD5 of your password, a fingerprint of the book file and the page position to the server you enter. Network shelves (WebDAV, SMB, OPDS) send your credentials and file requests to the servers you add. Voice and language models are downloaded from GitHub and Hugging Face without any personal data.</li>
+  <li><strong>Features you turn on talk only to services you choose.</strong> Cloud sync and backup write small JSON files to an app-only folder of the Google Drive, Dropbox or OneDrive account you sign into (sign-in tokens are sealed on the device). KOReader sync sends your username, an MD5 of your password, a fingerprint of the book file and the page position to the server you enter. Network shelves (WebDAV, SMB, OPDS) send your credentials and file requests to the servers you add. Voice and language models are downloaded from GitHub and Hugging Face, and translation language packs from Google (ML Kit), without any personal data; text recognition and translation run on the device.</li>
+  <li><strong>Cloud shelf (Pro).</strong> The books you open or add, their covers and a small JSON of each book's details are uploaded to a visible “PaperFlow Books” folder (Apps/PaperFlow/Books on Dropbox and OneDrive) in the cloud account or sync folder you connect. On Google Drive the app uses the drive.file permission, which reaches only files the app created. Removing a book from the shelf removes it from the cloud.</li>
+  <li><strong>Online read-aloud voices.</strong> Only if you choose one and enter your own API key, the <strong>sentences being read</strong> and that key are sent to the service you chose — Google Cloud Text-to-Speech (Chirp 3 HD), the Google Gemini API, or Alibaba Cloud Model Studio (international edition, Singapore region) — which returns the audio. Use is billed to your key's account, and the sentences are handled under that service's terms and privacy policy (<a href="https://cloud.google.com/terms/cloud-privacy-notice">Google Cloud</a>, <a href="https://ai.google.dev/gemini-api/terms">Gemini API</a>, <a href="https://www.alibabacloud.com/help/en/legal/latest/alibaba-cloud-international-website-privacy-policy">Alibaba Cloud</a>). Keys are sealed with the Android Keystore, sent nowhere else and left out of backups; the audio is cached only on the device. The developer has no access to the sentences, the audio or the keys.</li>
   <li><strong>Advertising and payments (Google Play version).</strong> The free version installed from Google Play shows Google AdMob banners on the shelf and settings screens, and a rewarded ad when you choose a Pro trial. AdMob may process the advertising ID, IP address and device information; consent is requested through Google's User Messaging Platform where required. See <a href="https://policies.google.com/privacy">Google's privacy policy</a>. Pro is purchased through Google Play Billing; the developer receives no payment details. Pro removes the ads.</li>
   <li><strong>No analytics or crash-reporting SDKs.</strong> The last crash log is kept on the device, viewable and deletable under Advanced, and is never uploaded.</li>
   <li><strong>Permissions.</strong> Internet (for the features above), notifications (read-aloud controls and indexing progress), foreground service (read-aloud and indexing continue in the background). Files and folders are opened only through the Android document picker. <strong>Approximate location</strong> is asked for only if you set the night theme to follow sunrise and sunset, and only when you press the button that finds it: the coarse position is read once, kept on the device as a latitude and a longitude to work out those two times, and <strong>never sent anywhere</strong>. Setting the times by hand asks for nothing, and refusing the permission leaves everything else working.</li>

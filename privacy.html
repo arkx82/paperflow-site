@@ -33,7 +33,7 @@
 <main>
 <header>
   <h1>PaperFlow 개인정보처리방침</h1>
-  <p>시행일 2026년 9월 27일 · 안드로이드용 전자책·만화 리더 “PaperFlow”(패키지 <code>date.jjune.paperflow</code>)에 적용됩니다.</p>
+  <p>시행일 2026년 9월 28일 · 안드로이드용 전자책·만화 리더 “PaperFlow”(패키지 <code>date.jjune.paperflow</code>)에 적용됩니다.</p>
 </header>
 
 <h2>요약</h2>
@@ -72,6 +72,7 @@
   <tr><td>온라인 읽어 주기 — Chirp 3 HD</td><td>Google Cloud Text-to-Speech</td><td rowspan="3">사용자가 이 음성을 고르고 자신의 API 키를 넣은 경우에만, <strong>읽어 줄 문장</strong>과 그 키를 해당 서비스로 보내고 음성을 받습니다. 사용료는 키의 계정으로 청구되며, 보낸 문장은 그 서비스의 약관과 개인정보처리방침에 따라 처리됩니다. 키는 해당 서비스 외에는 어디로도 보내지 않으며, 개발자는 문장·음성·키에 접근하지 않습니다.</td></tr>
   <tr><td>온라인 읽어 주기 — Gemini</td><td>Google Gemini API</td></tr>
   <tr><td>온라인 읽어 주기 — Qwen</td><td>Alibaba Cloud Model Studio 국제판(싱가포르 리전)</td></tr>
+  <tr><td>Qwen “내 목소리” 만들기</td><td>Alibaba Cloud Model Studio 국제판(싱가포르 리전)</td><td>사용자가 고른 녹음 파일을 20초 이하의 모노 음성으로 줄여, 목소리를 만들 때 <strong>한 번</strong> 사용자의 API 키로 보냅니다. 서버는 그 녹음으로 만든 목소리를 사용자의 Model Studio 계정에 보관하고, 앱은 목소리 이름과 식별자만 기기에 저장합니다. 녹음 파일 자체는 앱이 따로 보관하지 않습니다. 앱에서 목소리를 지우면 계정에서도 지워집니다. 본인의 목소리이거나 목소리 주인의 허락을 받은 경우에만 만들 수 있다고 확인을 받습니다.</td></tr>
   <tr><td>기기 내장 읽어 주기</td><td>기기에 설치된 TTS 엔진(Samsung, Google 등)</td><td>읽어 줄 문장. 해당 엔진의 정책이 적용됩니다.</td></tr>
 </table>
 </div>
@@ -110,12 +111,13 @@
 
 <section class="en" lang="en">
 <h2>Privacy Policy (English)</h2>
-<p><strong>Effective 27 September 2026.</strong> PaperFlow is an e-book and comic reader for Android (<code>date.jjune.paperflow</code>).</p>
+<p><strong>Effective 28 September 2026.</strong> PaperFlow is an e-book and comic reader for Android (<code>date.jjune.paperflow</code>).</p>
 <ul>
   <li><strong>No accounts, no developer servers.</strong> PaperFlow has no sign-up and the developer runs no server for it. Your books, reading positions, bookmarks, highlights, reading time and settings stay on your device and are never sent to the developer.</li>
   <li><strong>Features you turn on talk only to services you choose.</strong> Cloud sync and backup write small JSON files to an app-only folder of the Google Drive, Dropbox or OneDrive account you sign into (sign-in tokens are sealed on the device). KOReader sync sends your username, an MD5 of your password, a fingerprint of the book file and the page position to the server you enter. Network shelves (WebDAV, SMB, OPDS) send your credentials and file requests to the servers you add. Voice and language models are downloaded from GitHub and Hugging Face, and translation language packs from Google (ML Kit), without any personal data; text recognition and translation run on the device.</li>
   <li><strong>Cloud shelf (Pro).</strong> The books you open or add, their covers and a small JSON of each book's details are uploaded to a visible “PaperFlow Books” folder (Apps/PaperFlow/Books on Dropbox and OneDrive) in the cloud account or sync folder you connect. On Google Drive the app uses the drive.file permission, which reaches only files the app created. Removing a book from the shelf removes it from the cloud.</li>
   <li><strong>Online read-aloud voices.</strong> Only if you choose one and enter your own API key, the <strong>sentences being read</strong> and that key are sent to the service you chose — Google Cloud Text-to-Speech (Chirp 3 HD), the Google Gemini API, or Alibaba Cloud Model Studio (international edition, Singapore region) — which returns the audio. Use is billed to your key's account, and the sentences are handled under that service's terms and privacy policy (<a href="https://cloud.google.com/terms/cloud-privacy-notice">Google Cloud</a>, <a href="https://ai.google.dev/gemini-api/terms">Gemini API</a>, <a href="https://www.alibabacloud.com/help/en/legal/latest/alibaba-cloud-international-website-privacy-policy">Alibaba Cloud</a>). Keys are sealed with the Android Keystore, sent nowhere else and left out of backups; the audio is cached only on the device. The developer has no access to the sentences, the audio or the keys.</li>
+  <li><strong>Voices made for Qwen.</strong> If you make a voice from a recording, the recording you choose is cut to at most twenty seconds of mono speech and sent once, with your key, to Alibaba Cloud Model Studio (international edition, Singapore), which keeps the voice it makes in your Model Studio account. The app keeps only the voice's name and identifier, not the recording, and deleting the voice in the app deletes it from your account. You are asked to confirm that the voice is your own or that its owner has agreed.</li>
   <li><strong>Advertising and payments (Google Play version).</strong> The free version installed from Google Play shows Google AdMob banners on the shelf and settings screens, and a rewarded ad when you choose a Pro trial. AdMob may process the advertising ID, IP address and device information; consent is requested through Google's User Messaging Platform where required. See <a href="https://policies.google.com/privacy">Google's privacy policy</a>. Pro is purchased through Google Play Billing; the developer receives no payment details. Pro removes the ads.</li>
   <li><strong>No analytics or crash-reporting SDKs.</strong> The last crash log is kept on the device, viewable and deletable under Advanced, and is never uploaded.</li>
   <li><strong>Permissions.</strong> Internet (for the features above), notifications (read-aloud controls and indexing progress), foreground service (read-aloud and indexing continue in the background). Files and folders are opened only through the Android document picker. <strong>Approximate location</strong> is asked for only if you set the night theme to follow sunrise and sunset, and only when you press the button that finds it: the coarse position is read once, kept on the device as a latitude and a longitude to work out those two times, and <strong>never sent anywhere</strong>. Setting the times by hand asks for nothing, and refusing the permission leaves everything else working.</li>
